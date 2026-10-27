@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFQ8M0VSFN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RFQ8M0VSFN');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Runner 2099 | Free Cyberpunk Endless Runner Web Game - Gamility</title>
+  <meta name="description" content="Play Cyber Runner 2099 for free! High-speed cyberpunk synthwave endless runner. Dash across neon rooftops, double jump over spikes, slide under lasers, and grab data chits in your browser.">
+  <meta name="keywords" content="cyber runner 2099, cyberpunk runner, endless runner browser game, neon arcade game, free online game, gamility">
+  <meta name="author" content="Gamility">
+  <meta name="robots" content="index, follow">
+
+  <!-- Individual Game Favicon & PWA Manifest -->
+    <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cyber Runner 2099 | Free Cyberpunk Endless Runner Web Game - Gamility">
+  <meta property="og:description" content="Play Cyber Runner 2099 for free! High-speed cyberpunk synthwave endless runner. Dash across neon rooftops, double jump over spikes, slide under lasers, and grab data chits in your browser.">
+  <meta property="og:image" content="preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Cyber Runner 2099 | Free Cyberpunk Endless Runner Web Game - Gamility">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Runner 2099 | Free Cyberpunk Endless Runner Web Game - Gamility">
+  <meta name="twitter:description" content="Play Cyber Runner 2099 for free! High-speed cyberpunk synthwave endless runner. Dash across neon rooftops, double jump over spikes, slide under lasers, and grab data chits in your browser.">
+  <meta name="twitter:image" content="preview.png">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#f43f5e">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Cyber Runner 2099",
+    "description": "High-octane cyberpunk rooftop endless runner web game featuring double jumps, sliding, and powerups.",
+    "genre": ["Action", "Arcade", "Endless Runner", "Platformer"],
+    "playMode": "SinglePlayer",
+    "applicationCategory": "Game",
+    "operatingSystem": "Any modern web browser",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Game Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Gamility Ribbon for Standalone & Repos Navigation -->
+  <header class="top-nav-ribbon" role="banner">
+    <a href="https://mahesh-yennam.github.io/Gamility/" class="ribbon-brand" title="Gamility Home">
+      <svg width="24" height="24" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 4L4 12V28L20 36L36 28V12L20 4Z" stroke="#f43f5e" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M20 12L12 16V24L20 28L28 24V16L20 12Z" fill="#a855f7" fill-opacity="0.85"/>
+        <circle cx="20" cy="20" r="3" fill="#ffffff"/>
+      </svg>
+      <span>Gamility Arcade</span>
+    </a>
+    <a href="https://mahesh-yennam.github.io/Gamility/games.html" class="ribbon-back-btn" title="Back to All Games">
+      <span>←</span> Back to Games
+    </a>
+  </header>
+
+  <!-- Main Game Stage -->
+  <main class="game-wrapper">
+    <!-- Header with Live Score HUD -->
+    <header class="arcade-header">
+      <div class="game-title-badge">
+        <h1>Cyber Runner 2099</h1>
+      </div>
+      <div class="hud-panel" aria-label="Game HUD">
+        <div class="hud-stat">
+          <span class="hud-label">Distance</span>
+          <span id="distVal" class="hud-val">0m</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">Credits</span>
+          <span id="creditsVal" class="hud-val" style="color: var(--neon-amber);">0</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">Score</span>
+          <span id="scoreVal" class="hud-val" style="color: var(--neon-pink);">0</span>
+        </div>
+        <div class="hud-stat">
+          <span class="hud-label">Best</span>
+          <span id="highVal" class="hud-val" style="color: var(--neon-purple);">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Canvas Stage Container -->
+    <div class="canvas-container">
+      <canvas id="gameCanvas" width="800" height="450" aria-label="Cyber Runner 2099 2D Canvas Stage"></canvas>
+
+      <!-- Start Mission Overlay -->
+      <div id="startOverlay" class="arcade-overlay">
+        <h2 class="overlay-title start">Cyber Runner 2099</h2>
+        <p class="overlay-subtitle">Dash across the neon skyline of Neo-Tokyo. Jump across spike traps, slide under high patrol lasers, collect data chits, and trigger hyper overdrive!</p>
+        <button id="startBtn" class="arcade-btn" type="button">
+          <span>⚡</span> Run Neo-Tokyo
+        </button>
+      </div>
+
+      <!-- Crash / Game Over Overlay -->
+      <div id="gameOverOverlay" class="arcade-overlay hidden">
+        <h2 class="overlay-title gameover">System Crash</h2>
+        <p class="overlay-subtitle">Signal Lost! Final Score: <strong id="finalScore" style="color: var(--neon-pink); font-size: 1.5rem; display: inline-block; margin-left: 0.25rem;">0</strong></p>
+        <button id="restartBtn" class="arcade-btn" type="button">
+          <span>🔄</span> Jack In Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Controls Toolbar -->
+    <div class="controls-toolbar">
+      <div class="toolbar-btn-group">
+        <button id="pauseBtn" class="tool-icon-btn" type="button" title="Pause Game (P)">⏸️ Pause</button>
+        <button id="muteBtn" class="tool-icon-btn" type="button" title="Toggle Synthesized Sound">🔊 Sound</button>
+      </div>
+      <button id="fullscreenBtn" class="tool-icon-btn" type="button" title="Toggle Fullscreen">⛶ Fullscreen</button>
+    </div>
+
+    <!-- Mobile On-Screen Action Buttons -->
+    <div class="mobile-touch-bar" aria-label="Mobile On-Screen Action Buttons">
+      <button id="touchJump" class="touch-action-btn jump" type="button" aria-label="Jump / Double Jump">⬆ JUMP (DOUBLE JUMP)</button>
+      <button id="touchSlide" class="touch-action-btn slide" type="button" aria-label="Slide Duck">⬇ SLIDE DUCK</button>
+    </div>
+
+    <!-- Instructions & Protocol Card -->
+    <section class="game-instructions-card" aria-label="Cyber Protocol and Power-Up Legend">
+      <h3>⚡ Cyber Protocol & Power-Ups</h3>
+      <div class="legend-grid">
+        <div class="legend-item">
+          <span class="legend-badge">⬆️</span>
+          <div><strong>Jump & Double Jump:</strong> Press <strong>Spacebar</strong> or <strong>W</strong> to leap over floor spikes. Tap again in mid-air to double jump!</div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge">⬇️</span>
+          <div><strong>Slide Duck:</strong> Press <strong>Arrow Down</strong> or <strong>S</strong> to slide under overhead laser barriers and drones.</div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge">💎</span>
+          <div><strong>Data Chits:</strong> Glowing cyan and gold diamonds add credit multipliers to your final score (+10 Pts).</div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge">🛡️</span>
+          <div><strong>Cyber Shield:</strong> Grants a 1-hit kinetic bubble absorbing any obstacle collision.</div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge">🧲</span>
+          <div><strong>Data Magnet:</strong> Pulls all nearby data chits toward your runner for 7 seconds.</div>
+        </div>
+        <div class="legend-item">
+          <span class="legend-badge">⚡</span>
+          <div><strong>Overdrive Sprint:</strong> Accelerates to maximum velocity and obliterates all obstacles for 4 seconds.</div>
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #94a3b8; line-height: 1.5;">
+        <strong>Desktop Controls:</strong> Spacebar / Arrow Up to Jump (tap twice for Double Jump). Arrow Down / S to Slide. P to Pause.<br>
+        <strong>Mobile Controls:</strong> Tap the large <strong>⬆ JUMP</strong> and <strong>⬇ SLIDE</strong> buttons, or swipe up and down directly across the screen.
+      </p>
+    </section>
+  </main>
+
+  <!-- Core Game Script -->
+  <script src="game.js"></script>
+</body>
+</html>

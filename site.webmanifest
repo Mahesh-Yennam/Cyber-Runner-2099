@@ -1,0 +1,18 @@
+{
+  "name": "Cyber Runner 2099 - Cyberpunk Endless Runner",
+  "short_name": "CyberRunner",
+  "description": "High-speed cyberpunk rooftop endless runner. Double jump over spikes, slide under lasers, and unleash hyper overdrive in your browser.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "landscape-primary",
+  "background_color": "#050711",
+  "theme_color": "#f43f5e",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
